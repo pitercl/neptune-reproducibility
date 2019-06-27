@@ -1,3 +1,9 @@
+# This script allows for reproducing a particular experiment
+# You can run it with
+#
+#       python ./neptune_rerun.py SAN-123
+#
+# where SAN-123 is the ID of the experiment to be reproduced
 
 import subprocess
 import neptune

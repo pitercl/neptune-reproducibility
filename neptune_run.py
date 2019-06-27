@@ -1,3 +1,6 @@
+# This script can be used to run the actual experiment
+# It reads the repro.yaml file from the repository to learn how to execute the experiment
+# Then it runs the experiment in a docker container
 
 import yaml
 import git
@@ -38,4 +41,3 @@ with open(path) as stream:
     ]
 
     subprocess.Popen(command, shell=False).communicate()
-    # subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE)

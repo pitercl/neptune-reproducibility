@@ -33,7 +33,7 @@ with open(path) as stream:
         "-e", "DOCKER_IMAGE=" + docker_image + "",
         "-e", "DOCKER_EXTRA_PARAMS=" + docker_extra_params,
         docker_image,
-        "-c", "git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
+        "-c", "git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout -q \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
     ]
 
     subprocess.Popen(command, shell=False).communicate()

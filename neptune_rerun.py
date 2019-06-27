@@ -41,7 +41,7 @@ command = [
           ] + docker_extra_params.split(" ") + [
               docker_image,
               "-c",
-              "&& pip install neptune-client && git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout -q \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
+              "pip install neptune-client && git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout -q \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
           ]
 
 subprocess.Popen(command, shell=False).communicate()

@@ -3,7 +3,7 @@ import neptune
 
 neptune.init()
 
-experiment = neptune.create_experiment("Repro v2")
+experiment = neptune.create_experiment("My Experiment")
 
 experiment.set_property("git_remote", os.getenv("GIT_REPO", ""))
 experiment.set_property("docker_image", os.getenv("DOCKER_IMAGE", ""))

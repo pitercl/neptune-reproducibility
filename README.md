@@ -1,1 +1,0 @@
-This repo contains varius utility scrptis and tutorials for Neptune

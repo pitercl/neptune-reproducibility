@@ -1,14 +1,8 @@
 
-import git
 import subprocess
 import neptune
 import sys
 import os
-
-git_repo = git.Repo('.', search_parent_directories=True)
-git_root = git_repo.git.rev_parse("--show-toplevel")
-
-path = git_root + "/repro.yaml"
 
 project = neptune.init()
 
@@ -39,7 +33,7 @@ command = [
     "-e", "DOCKER_IMAGE=" + docker_image + "",
     "-e", "DOCKER_EXTRA_PARAMS=" + docker_extra_params,
     docker_image,
-    "-c", "git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout -q \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
+    "-c", "pip install neptune-client && git clone -q \"$GIT_REPO\" /repo && cd /repo && git checkout -q \"$GIT_COMMIT_SHA\" && $RUN_COMMAND"
 ]
 
 subprocess.Popen(command, shell=False).communicate()
